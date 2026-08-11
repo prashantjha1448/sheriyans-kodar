@@ -9,7 +9,7 @@ const PlacementVideo = () => {
       style={{ backgroundImage: "url('https://px.pixxo.io/sheryians/kodr_assets/Background_002.png')" }}
     >
       {/* Decorative backdrop graphics */}
-      <div className="absolute top-[-8%] w-[40%] left-1/2 -translate-x-1/2 opacity-10 pointer-events-none select-none">
+      <div className="absolute top-0 w-[40%] left-1/2 -translate-x-1/2 opacity-10 pointer-events-none select-none">
         <img className="w-full h-full" src="https://px.pixxo.io/sheryians/kodr_assets/kodr_Second.png" alt="" />
       </div>
 

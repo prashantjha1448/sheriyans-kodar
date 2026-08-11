@@ -1,96 +1,62 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-
-const LogoIcon = () => (
-  <svg viewBox="2.5 1.5 31 36" className="w-9 h-9" fill="currentColor">
-    <path d="M9.55556 18.7654C9.14558 18.6132 8.73888 18.4617 8.3342 18.311C7.57197 18.027 6.81692 17.7458 6.06066 17.4678C5.87433 17.3993 5.74595 17.3 5.64886 17.1177C4.83662 15.5929 4.01663 14.0722 3.1903 12.555C3.07318 12.34 3.069 12.1596 3.15412 11.9258C3.48081 11.0285 3.74959 10.1127 4.01838 9.19681C4.13973 8.78333 4.26108 8.36985 4.38776 7.95805C4.58101 7.32987 4.7677 6.69948 4.94401 6.06638C4.99443 5.88534 5.08556 5.75256 5.22858 5.63759C5.39411 5.50454 5.56005 5.37195 5.726 5.23937C6.29488 4.78484 6.86382 4.33027 7.41627 3.85651C7.69443 3.61797 8.0152 3.5714 8.33757 3.5246C8.39158 3.51676 8.44564 3.50892 8.49955 3.50016C10.1662 3.22937 11.8339 2.96386 13.5039 2.7149C13.8187 2.66798 13.9158 2.52532 13.92 2.2288C13.9308 1.469 13.9516 1.45701 14.5957 1.85268C16.4284 2.9785 18.2592 4.10762 20.0839 5.24627C20.3206 5.39396 20.4525 5.38951 20.6268 5.15238C20.8508 4.84742 21.0867 4.55117 21.3226 4.25491C21.5261 3.99932 21.7296 3.74373 21.9256 3.4825C22.0803 3.27622 22.2699 3.18017 22.5095 3.13808C22.6331 3.11637 22.7567 3.09483 22.8803 3.0733C23.4039 2.98209 23.9276 2.89086 24.4485 2.78618C24.7832 2.71893 24.9723 2.79198 25.0555 3.15756C25.1046 3.37297 25.1759 3.58326 25.2473 3.79359C25.3157 3.99533 25.3842 4.1971 25.433 4.40346C25.5088 4.72405 25.6547 4.81053 25.9725 4.75395C27.0464 4.56277 28.1234 4.38799 29.2016 4.22168C29.2478 4.21455 29.2975 4.20043 29.3483 4.18602C29.5113 4.13978 29.6851 4.09046 29.7876 4.25873C29.8747 4.4017 29.7714 4.54072 29.6743 4.67136C29.6443 4.7117 29.6149 4.75125 29.5918 4.78986C29.3453 5.20364 29.0915 5.61492 28.8115 6.0063C28.6444 6.23982 28.6828 6.37893 28.8823 6.5669C29.2023 6.86831 29.5156 7.17729 29.8289 7.48621C30.4122 8.06132 30.9953 8.63625 31.6201 9.16183C32.1809 9.63357 32.3403 10.1758 32.3754 10.8382C32.397 11.2464 32.3488 11.6188 32.1631 11.9939C31.7671 12.794 31.4021 13.6097 31.0394 14.4257C30.9247 14.6836 30.7914 14.766 30.5245 14.6322C30.307 14.5232 30.081 14.4309 29.8552 14.3387C29.787 14.3109 29.7189 14.2831 29.6511 14.2548C29.484 14.1852 29.43 14.0811 29.4707 13.8946C29.6108 13.2531 29.7377 12.6087 29.8626 11.964C29.8912 11.8164 29.9698 11.7075 30.0654 11.6017C30.1779 11.4772 30.2888 11.3514 30.4197 11.2029C30.48 11.1345 30.5445 11.0612 30.6154 10.9811C30.376 10.9178 30.1518 10.8123 29.9317 10.7087C29.4153 10.4657 28.9218 10.2335 28.3091 10.5816C28.2585 10.6103 28.203 10.6302 28.1475 10.6501C28.0916 10.6701 28.0358 10.6901 27.985 10.7191C27.2071 11.1631 26.5322 10.9554 25.9068 10.4028C25.8807 10.3796 25.8466 10.3655 25.803 10.3474L25.7238 10.3126C25.5289 10.7339 25.4304 11.167 25.3441 11.5967C25.3151 11.741 25.4413 11.8292 25.5599 11.9121L25.6624 11.9885C26.7495 12.92 27.8392 13.8485 28.9289 14.777C29.3066 15.0988 29.6842 15.4206 30.0618 15.7425L30.379 16.0126C30.7299 16.3111 31.0808 16.6096 31.4278 16.9125C31.8701 17.2986 31.7687 17.9797 31.2417 18.1977C30.9459 18.32 30.6499 18.4419 30.3539 18.5639C29.607 18.8716 28.86 19.1793 28.1157 19.4934C27.8662 19.5987 27.6339 19.6265 27.3661 19.5567C26.9788 19.4559 26.5891 19.3642 26.1994 19.2724C25.8465 19.1894 25.4936 19.1064 25.1424 19.0165C24.9176 18.959 24.7167 18.9706 24.5424 19.1106C23.8549 19.6627 23.211 19.6514 22.497 19.1026C22.0933 18.7924 21.7164 18.5008 21.4278 18.0677C19.9925 15.9141 18.5434 13.7697 17.0943 11.6253C16.7795 11.1595 16.4647 10.6937 16.1501 10.2278L16.1045 10.156C16.0403 10.0516 15.9743 9.94422 15.8364 9.89889C15.6477 9.99486 15.5281 10.1605 15.4097 10.3244L15.3139 10.4539C15.1804 10.6259 15.0285 10.6769 14.8242 10.645C14.5241 10.598 14.2237 10.5529 13.9232 10.5078C13.2842 10.4118 12.6452 10.3159 12.0093 10.202C11.7264 10.1513 11.4918 10.1777 11.2912 10.3649C10.8675 10.76 10.3713 10.752 9.8414 10.6931L9.56294 10.6578C9.24378 10.6147 8.92234 10.5713 8.60109 10.6176C8.56563 10.796 8.6615 10.8756 8.74916 10.9485L8.80041 10.9928C9.10816 11.2822 9.41838 11.5689 9.72861 11.8557L10.5314 12.6009C10.6696 12.7303 10.8279 12.7818 11.0101 12.7903C11.3457 12.8058 11.6813 12.822 12.0169 12.8381C12.7253 12.8721 13.4337 12.9061 14.1423 12.935C14.361 12.9439 14.5444 13.0141 14.7394 13.11C15.8122 13.6371 16.6313 14.4322 17.2963 15.4137C17.4968 15.7095 17.7216 15.9886 17.9466 16.2679L18.309 16.7252C18.5697 17.0654 18.5234 17.2198 18.1231 17.3206C17.1786 17.5584 16.2339 17.7954 15.2892 18.0324C13.8312 18.3981 12.3732 18.7638 10.916 19.1328C10.7568 19.1731 10.6202 19.164 10.473 19.1065C10.2361 19.014 9.99712 18.9267 9.74484 18.8346L9.55556 18.7654ZM23.9732 21.9575C24.3591 22.0528 24.7363 22.146 25.1154 22.2306C25.3099 22.274 25.4595 22.3592 25.5884 22.5079L25.6274 22.5529C26.0836 23.0795 26.54 23.6062 27.0091 24.1213C27.1609 24.288 27.207 24.4412 27.137 24.6588C26.95 25.2395 26.7742 25.8241 26.6094 26.4114C26.5569 26.5981 26.4524 26.7094 26.2918 26.8055C24.0945 28.1199 21.8975 29.4349 19.7078 30.7621C19.3907 30.9543 19.1762 30.9446 18.9225 30.6522C18.2182 29.8404 17.4985 29.0418 16.7789 28.2434L16.366 27.785C16.2329 27.6372 16.1666 27.4826 16.1697 27.2789C16.1795 26.6329 16.1798 25.9865 16.1697 25.3404C16.1664 25.1275 16.3571 24.7913 16.3571 24.7913C17.2941 23.5853 18.2307 22.379 19.1549 21.1633C19.3419 20.9174 19.5533 20.8677 19.8302 20.9366C21.0138 21.2311 22.1983 21.522 23.4111 21.8196L23.9732 21.9575ZM27.8991 27.9604C28.089 27.8088 28.2571 27.8272 28.4452 27.9168C29.2193 28.2856 29.9967 28.6473 30.7757 29.0057C30.9258 29.0748 31.0071 29.1666 31.052 29.3347C31.364 30.5018 31.6884 31.6656 32.0133 32.8292C32.09 33.1041 32.0356 33.3271 31.8326 33.5354C30.8076 34.587 29.7855 35.6416 28.7732 36.7055C28.6024 36.885 28.4347 36.8701 28.2331 36.8181C27.9008 36.7323 27.5677 36.6491 27.2347 36.566C26.5321 36.3906 25.8296 36.2152 25.1343 36.0149C24.5612 36.0149 24.0113 35.7985 23.45 36.0118C23.1239 36.1358 22.966 36.0225 22.8647 35.6894C22.5541 34.6678 22.2249 33.6513 21.8792 32.641C21.7663 32.3111 21.8561 32.1221 22.1302 31.9345C23.5792 30.9431 25.024 29.9455 26.4781 28.9413L27.8991 27.9604ZM32.7428 20.6878C32.8112 21.621 32.876 22.5214 32.9393 23.422C32.9545 23.6388 32.9689 23.8556 32.9833 24.0724C33.0085 24.4522 33.0337 24.832 33.0634 25.2115C33.083 25.4615 33.0719 25.6983 32.9616 25.9321C32.7111 26.463 32.4679 26.9976 32.2342 27.5361C32.1051 27.8335 31.9218 27.8577 31.6812 27.6829C31.353 27.4445 31.0252 27.2054 30.6975 26.9663C30.2092 26.6102 29.721 26.254 29.2312 25.9001C29.0692 25.783 29.0292 25.6272 29.0207 25.4423C28.9909 24.7977 28.958 24.1532 28.9171 23.5092C28.9072 23.354 28.9632 23.2394 29.0554 23.1257C29.738 22.2837 30.4199 21.4409 31.1017 20.5982C31.4467 20.1717 31.7918 19.7452 32.137 19.3188L32.1429 19.3115C32.2385 19.1932 32.3415 19.0658 32.5155 19.1316C32.6535 19.1837 32.6562 19.3076 32.6588 19.4279L32.6613 19.497C32.6868 19.883 32.7127 20.2691 32.7428 20.6878Z" />
-  </svg>
-);
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  
-  // Local state instead of Redux
-  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const handleNavClick = (id) => {
-    setMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-    }
-  };
+  const isApplyPage = location.pathname === '/apply';
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12 transition-all select-none">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-white hover:opacity-85 transition-opacity" onClick={() => setMenuOpen(false)}>
-          <LogoIcon />
-          <span className="font-clash text-lg md:text-xl font-semibold tracking-wider uppercase">Sheryians</span>
-        </Link>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 font-helvetica text-white/70">
-          <button onClick={() => navigate('/')} className="hover:text-white transition-colors cursor-pointer text-[1rem]">
-            Home
-          </button>
-          <button onClick={() => handleNavClick('syllabus')} className="hover:text-white transition-colors cursor-pointer text-[1rem]">
-            Syllabus
-          </button>
-          <button onClick={() => handleNavClick('projects')} className="hover:text-white transition-colors cursor-pointer text-[1rem]">
-            Projects
-          </button>
-          <button onClick={() => handleNavClick('faq')} className="hover:text-white transition-colors cursor-pointer text-[1rem]">
-            FAQs
-          </button>
-          <button onClick={() => navigate('/apply')} className="py-2 px-6 rounded-full font-medium bg-gradient-to-b from-[#AC69FF] to-[#7200FF] text-white hover:brightness-105 transition-all text-[0.95rem] shadow-md shadow-[#7200FF]/20 cursor-pointer">
-            Explore Program
-          </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="flex md:hidden text-white/80 hover:text-white p-1 transition-all cursor-pointer"
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+    <div className='flex justify-between items-center px-10 py-6 bg-gradient-to-r from-black via-purple-900 to-purple-500 select-none'>
+      
+      {/* Logo */}
+      <div 
+        onClick={() => navigate('/')}
+        className='flex items-center gap-3 text-white cursor-pointer'
+      >
+        <img src="/logo.svg" alt="logo" className='h-8 w-8' />
+        <span className='border-l border-white/30 pl-3 leading-tight font-medium text-left text-xs'>
+          sheryians<br />coding school
+        </span>
       </div>
 
-      {/* Mobile Drawer */}
-      <div
-        className={`fixed inset-x-0 top-[69px] bottom-0 bg-[#050505]/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 py-10 transition-transform duration-350 z-40 md:hidden ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <button onClick={() => { navigate('/'); setMenuOpen(false); }} className="text-white text-2xl font-light hover:text-[#AC69FF] transition-colors cursor-pointer">
+      {/* Nav pill */}
+      <div className='rounded-full bg-white/10 backdrop-blur-md px-2 py-2 flex gap-2 text-white/70'>
+        <button 
+          onClick={() => navigate('/')}
+          className={`px-5 py-2 rounded-full hover:bg-white/10 transition cursor-pointer text-sm ${
+            !isApplyPage ? 'bg-white/10 text-white font-semibold' : ''
+          }`}
+        >
+          Bootcamp
+        </button>
+        <button 
+          onClick={() => navigate('/')}
+          className='px-5 py-2 rounded-full hover:bg-white/10 transition cursor-pointer text-sm'
+        >
           Home
         </button>
-        <button onClick={() => handleNavClick('syllabus')} className="text-white text-2xl font-light hover:text-[#AC69FF] transition-colors cursor-pointer">
-          Syllabus
-        </button>
-        <button onClick={() => handleNavClick('projects')} className="text-white text-2xl font-light hover:text-[#AC69FF] transition-colors cursor-pointer">
-          Projects
-        </button>
-        <button onClick={() => handleNavClick('faq')} className="text-white text-2xl font-light hover:text-[#AC69FF] transition-colors cursor-pointer">
-          FAQs
-        </button>
-        <button
-          onClick={() => { setMenuOpen(false); navigate('/apply'); }}
-          className="mt-4 py-3 px-8 rounded-full font-medium bg-gradient-to-b from-[#AC69FF] to-[#7200FF] text-white hover:brightness-105 transition-all text-[1.1rem] shadow-lg cursor-pointer"
+        <button 
+          onClick={() => navigate('/')}
+          className='px-5 py-2 rounded-full hover:bg-white/10 transition cursor-pointer text-sm'
         >
-          Explore Program
+          Courses
         </button>
       </div>
-    </nav>
+
+      {/* CTA */}
+      <button 
+        onClick={() => navigate('/apply')}
+        className={`rounded-full font-medium px-6 py-3 transition cursor-pointer text-sm ${
+          isApplyPage 
+            ? 'bg-purple-600 text-white border border-purple-500' 
+            : 'bg-white text-black hover:bg-white/90'
+        }`}
+      >
+        Apply Now!
+      </button>
+    </div>
   );
 };
 
